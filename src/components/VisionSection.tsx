@@ -42,8 +42,8 @@ export default function VisionSection() {
               이런 홈페이지가 필요합니다
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-              제대로 만든 홈페이지는{" "}
-              <br className="hidden sm:block" />
+              제대로 만든 홈페이지는
+              <br />
               <span className="gradient-text">
                 이렇게 일합니다
               </span>
@@ -68,7 +68,7 @@ export default function VisionSection() {
                   <div className="hidden sm:flex absolute left-6 md:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#9B7FE8] shadow-[0_0_12px_rgba(155,127,232,0.6)] z-10 mt-8" />
 
                   <div
-                    className={`flex-1 p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-[#111] to-[#0a0a0a] border border-white/5 hover:border-[#9B7FE8]/30 transition-all duration-300 ${
+                    className={`flex-1 p-5 sm:p-8 rounded-2xl bg-gradient-to-b from-[#111] to-[#0a0a0a] border border-white/5 hover:border-[#9B7FE8]/30 transition-all duration-300 ${
                       i % 2 === 0 ? "md:mr-auto md:pr-12" : "md:ml-auto md:pl-12"
                     } sm:ml-12 md:ml-0 md:max-w-[calc(50%-24px)]`}
                   >

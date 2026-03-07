@@ -74,7 +74,7 @@ export default function SolutionSection() {
         <div className="grid md:grid-cols-3 gap-6">
           {services.map((service, i) => (
             <ScrollReveal key={i} delay={i * 150}>
-              <div className="relative h-full p-8 rounded-2xl bg-gradient-to-b from-[#111] to-[#0a0a0a] border border-white/5 hover:border-[#6B46C1]/30 transition-all duration-300 group">
+              <div className="relative h-full p-5 sm:p-8 rounded-2xl bg-gradient-to-b from-[#111] to-[#0a0a0a] border border-white/5 hover:border-[#6B46C1]/30 transition-all duration-300 group">
                 <div className="text-5xl font-bold text-[#6B46C1]/20 mb-4">
                   {service.number}
                 </div>

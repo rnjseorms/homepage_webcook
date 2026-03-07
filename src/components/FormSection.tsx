@@ -115,7 +115,7 @@ export default function FormSection() {
         <ScrollReveal>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="p-8 rounded-2xl gradient-border space-y-5"
+            className="p-5 sm:p-8 rounded-2xl gradient-border space-y-5"
           >
             {/* Name */}
             <div>

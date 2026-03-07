@@ -55,7 +55,7 @@ export default function ProblemSection() {
         <div className="grid md:grid-cols-2 gap-6">
           {problems.map((item, i) => (
             <ScrollReveal key={i} delay={i * 120}>
-              <div className="relative group h-full p-8 rounded-2xl bg-gradient-to-b from-[#111] to-[#0a0a0a] border border-white/5 hover:border-[#6B46C1]/30 transition-all duration-300">
+              <div className="relative group h-full p-5 sm:p-8 rounded-2xl bg-gradient-to-b from-[#111] to-[#0a0a0a] border border-white/5 hover:border-[#6B46C1]/30 transition-all duration-300">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-3xl">{item.icon}</span>
                   <span className="text-xs px-2.5 py-1 rounded-full bg-white/5 text-[#A0A0B0]">
@@ -74,7 +74,7 @@ export default function ProblemSection() {
         {/* Transition copy */}
         <ScrollReveal>
           <div className="mt-16 text-center">
-            <div className="inline-block p-8 rounded-2xl gradient-border max-w-2xl">
+            <div className="inline-block p-5 sm:p-8 rounded-2xl gradient-border max-w-2xl">
               <p className="text-xl sm:text-2xl font-bold leading-relaxed">
                 이 모든 문제의 해답은 하나입니다 —
                 <br />

@@ -84,7 +84,7 @@ export default function SocialProofSection() {
               .slice(currentIndex, currentIndex + visibleCount)
               .map((t, i) => (
                 <ScrollReveal key={currentIndex + i} delay={i * 100}>
-                  <div className="h-full p-8 rounded-2xl bg-gradient-to-b from-[#111] to-[#0a0a0a] border border-white/5">
+                  <div className="h-full p-5 sm:p-8 rounded-2xl bg-gradient-to-b from-[#111] to-[#0a0a0a] border border-white/5">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-10 h-10 rounded-full bg-[#6B46C1]/20 flex items-center justify-center text-sm font-bold text-[#9F7AEA]">
                         {t.name[0]}

@@ -43,7 +43,7 @@ export default function AuthoritySection() {
             {stats.map((stat, i) => (
               <div
                 key={i}
-                className="text-center p-6 rounded-2xl bg-[#111] border border-white/5"
+                className="text-center p-4 sm:p-6 rounded-2xl bg-[#111] border border-white/5"
               >
                 <div className="text-3xl sm:text-4xl font-bold gradient-text">
                   <CountUp end={stat.value} suffix={stat.suffix} />
@@ -57,9 +57,9 @@ export default function AuthoritySection() {
         {/* Profile + Credentials */}
         <div className="grid md:grid-cols-2 gap-8">
           <ScrollReveal>
-            <div className="p-8 rounded-2xl gradient-border">
+            <div className="p-5 sm:p-8 rounded-2xl gradient-border">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#6B46C1] to-[#9B7FE8] flex items-center justify-center text-xl font-bold">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-[#6B46C1] to-[#9B7FE8] flex items-center justify-center text-xl font-bold">
                   WC
                 </div>
                 <div>
@@ -93,7 +93,7 @@ export default function AuthoritySection() {
           </ScrollReveal>
 
           <ScrollReveal delay={150}>
-            <div className="p-8 rounded-2xl gradient-border">
+            <div className="p-5 sm:p-8 rounded-2xl gradient-border">
               <h3 className="text-xl font-bold mb-6">웹쿡의 강점</h3>
               <ul className="space-y-4">
                 {credentials.map((cred, i) => (

@@ -94,7 +94,7 @@ export default function OfferSection() {
         </ScrollReveal>
 
         <ScrollReveal>
-          <div className="p-8 sm:p-12 rounded-2xl gradient-border text-center">
+          <div className="p-5 sm:p-12 rounded-2xl gradient-border text-center">
             {/* Countdown */}
             <p className="text-sm text-amber-400 mb-4 font-medium">
               무료 상담 마감까지

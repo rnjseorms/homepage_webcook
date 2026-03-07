@@ -79,3 +79,13 @@ body {
   background: linear-gradient(135deg, rgba(107, 70, 193, 0.3), rgba(107, 70, 193, 0.1));
   border: 1px solid rgba(107, 70, 193, 0.2);
 }
+
+/* Hero section responsive scroll height */
+.hero-scroll-height {
+  height: 200vh;
+}
+@media (min-width: 768px) {
+  .hero-scroll-height {
+    height: 300vh;
+  }
+}
