@@ -214,8 +214,8 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* ===== MOBILE: text above → video middle → CTA below ===== */}
-      <div className="sticky top-0 h-screen overflow-hidden flex flex-col items-center justify-center gap-4 md:hidden">
+      {/* ===== MOBILE: 2줄 위 → 영상 최대 → 2줄 아래 ===== */}
+      <div className="sticky top-0 h-screen overflow-hidden flex flex-col items-center justify-center gap-3 md:hidden">
         {!isLoaded && (
           <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0a0015] to-[#05000d]" />
         )}
@@ -226,22 +226,17 @@ export default function HeroSection() {
           </div>
         )}
 
-        {/* Top: title text — stays visible throughout scroll */}
-        <div className="relative z-10 pt-14 px-5 text-center">
-          <h1 className="text-[22px] font-bold leading-snug mb-1.5">
+        {/* Top 2 lines */}
+        <div className="relative z-10 pt-16 px-5 text-center">
+          <h1 className="text-[22px] font-bold leading-snug">
             사장님이 잠든 시간에도
             <br />
             <span className="gradient-text">고객은 검색하고 있습니다</span>
           </h1>
-          <p className="text-sm text-white/70 leading-relaxed">
-            24시간 지치지 않는 최우수 영업사원,
-            <br />
-            제대로 된 홈페이지 하나면 충분합니다.
-          </p>
         </div>
 
-        {/* Middle: video canvas — fixed 16:9 aspect ratio */}
-        <div className="relative w-[calc(100%-2rem)] aspect-[16/9]">
+        {/* Video canvas — maximized */}
+        <div className="relative w-[calc(100%-1.5rem)] flex-1 min-h-0">
           <canvas
             ref={mobileCanvasRef}
             className={`w-full h-full rounded-2xl transition-opacity duration-700 ${
@@ -250,23 +245,13 @@ export default function HeroSection() {
           />
         </div>
 
-        {/* Bottom: CTA stays visible, scroll indicator fades */}
-        <div className="relative z-10 px-5 text-center">
-          <a
-            href="#form"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#6B46C1] text-white font-semibold text-base hover:bg-[#553C9A] transition-all animate-pulse-glow"
-          >
-            프로젝트 문의하기
-          </a>
-          <div
-            className="flex flex-col items-center gap-1 mt-2 text-[#A0A0B0]"
-            style={{ opacity: Math.max(0, 1 - scrollProgress * 4) }}
-          >
-            <span className="text-[11px]">스크롤하세요</span>
-            <div className="w-4 h-6 rounded-full border-2 border-[#A0A0B0]/40 flex justify-center">
-              <div className="w-1 h-1.5 bg-[#A0A0B0] rounded-full mt-1 animate-bounce" />
-            </div>
-          </div>
+        {/* Bottom 2 lines */}
+        <div className="relative z-10 pb-6 px-5 text-center">
+          <p className="text-sm text-white/70 leading-relaxed">
+            24시간 지치지 않는 최우수 영업사원,
+            <br />
+            제대로 된 홈페이지 하나면 충분합니다.
+          </p>
         </div>
       </div>
     </section>
