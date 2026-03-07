@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 
-const FRAME_COUNT = 80;
+const FRAME_COUNT = 160;
 const FRAME_PATH = "/frames/frame_";
 const FRAME_EXT = "jpg";
 
