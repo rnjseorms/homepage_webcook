@@ -85,8 +85,10 @@ export default function OfferSection() {
               지금{" "}
               <span className="gradient-text">무료 상담</span> 받아보세요
             </h2>
-            <p className="text-lg text-[#A0A0B0]">
-              내 홈페이지, 왜 전환이 안 되는지 무료로 진단해 드립니다.
+            <p className="text-base sm:text-lg text-[#A0A0B0]">
+              내 홈페이지, 왜 전환이 안 되는지
+              <br className="sm:hidden" />
+              무료로 진단해 드립니다.
               <br className="hidden sm:block" />
               전환율을 높이는 구체적인 방법까지 제안합니다.
             </p>

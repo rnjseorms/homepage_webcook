@@ -28,6 +28,8 @@ body {
   font-family: "Pretendard Variable", "Inter", sans-serif;
   line-height: 1.7;
   overflow-x: hidden;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 ::selection {

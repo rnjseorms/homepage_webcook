@@ -100,9 +100,8 @@ export default function FormSection() {
       <div className="max-w-lg mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-              24시간 일하는{" "}
-              <span className="gradient-text">최우수 영업사원</span>
+            <h2 className="text-xl sm:text-3xl md:text-4xl font-bold mb-4">
+              24시간 일하는 <span className="gradient-text">최우수 영업사원</span>
               <br />
               지금 바로 고용하세요
             </h2>

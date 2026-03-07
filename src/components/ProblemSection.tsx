@@ -46,8 +46,10 @@ export default function ProblemSection() {
               혹시{" "}
               <span className="text-red-400">이런 상황</span>이신가요?
             </h2>
-            <p className="text-[#A0A0B0] text-lg max-w-2xl mx-auto">
-              홈페이지 하나로 해결될 문제를, 아직도 사장님이 직접 뛰고 계십니다.
+            <p className="text-[#A0A0B0] text-base sm:text-lg max-w-2xl mx-auto">
+              홈페이지 하나로 해결될 문제를,
+              <br className="sm:hidden" />
+              아직도 사장님이 직접 뛰고 계십니다.
             </p>
           </div>
         </ScrollReveal>
@@ -75,11 +77,13 @@ export default function ProblemSection() {
         <ScrollReveal>
           <div className="mt-16 text-center">
             <div className="inline-block p-5 sm:p-8 rounded-2xl gradient-border max-w-2xl">
-              <p className="text-xl sm:text-2xl font-bold leading-relaxed">
+              <p className="text-lg sm:text-2xl font-bold leading-relaxed">
                 이 모든 문제의 해답은 하나입니다 —
                 <br />
-                <span className="gradient-text text-2xl sm:text-3xl">
-                  제대로 만든 홈페이지, 최고의 영업사원
+                <span className="gradient-text text-xl sm:text-3xl">
+                  제대로 만든 홈페이지,
+                  <br className="sm:hidden" />
+                  최고의 영업사원
                 </span>
               </p>
             </div>
