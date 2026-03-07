@@ -214,8 +214,8 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* ===== MOBILE: 2줄 위 → 영상 최대 → 2줄 아래 ===== */}
-      <div className="sticky top-0 h-screen overflow-hidden flex flex-col items-center justify-center gap-3 md:hidden">
+      {/* ===== MOBILE: 2줄 위 → 영상 → 2줄 아래 ===== */}
+      <div className="sticky top-0 h-screen overflow-hidden flex flex-col items-stretch md:hidden">
         {!isLoaded && (
           <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0a0015] to-[#05000d]" />
         )}
@@ -226,17 +226,17 @@ export default function HeroSection() {
           </div>
         )}
 
-        {/* Top 2 lines */}
-        <div className="relative z-10 pt-16 px-5 text-center">
-          <h1 className="text-[22px] font-bold leading-snug">
+        {/* Top 2 lines — centered in available space */}
+        <div className="relative z-10 flex-1 flex items-center justify-center px-5 pt-14">
+          <h1 className="text-[26px] font-bold leading-snug text-center">
             사장님이 잠든 시간에도
             <br />
             <span className="gradient-text">고객은 검색하고 있습니다</span>
           </h1>
         </div>
 
-        {/* Video canvas — maximized */}
-        <div className="relative w-[calc(100%-1.5rem)] flex-1 min-h-0">
+        {/* Video canvas — 16:9 fixed */}
+        <div className="relative w-[calc(100%-1.5rem)] mx-auto aspect-[16/9]">
           <canvas
             ref={mobileCanvasRef}
             className={`w-full h-full rounded-2xl transition-opacity duration-700 ${
@@ -245,9 +245,9 @@ export default function HeroSection() {
           />
         </div>
 
-        {/* Bottom 2 lines */}
-        <div className="relative z-10 pb-6 px-5 text-center">
-          <p className="text-sm text-white/70 leading-relaxed">
+        {/* Bottom 2 lines — centered in available space */}
+        <div className="relative z-10 flex-1 flex items-center justify-center px-5 pb-4">
+          <p className="text-lg text-white/80 leading-relaxed text-center font-medium">
             24시간 지치지 않는 최우수 영업사원,
             <br />
             제대로 된 홈페이지 하나면 충분합니다.
