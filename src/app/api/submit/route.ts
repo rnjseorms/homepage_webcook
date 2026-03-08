@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { addLead } from "@/lib/leads";
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,29 +13,30 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Google Apps Script Web App URL (set in .env)
-    const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL;
+    const timestamp = new Date().toISOString();
 
+    // Save to local JSON
+    addLead({
+      timestamp,
+      name: name || "",
+      email,
+      phone: phone || "",
+      source: source || "direct",
+    });
+
+    // Also send to Google Apps Script if configured
+    const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL;
     if (GOOGLE_SCRIPT_URL) {
       await fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          timestamp: new Date().toISOString(),
+          timestamp,
           name: name || "",
           email,
           phone: phone || "",
           source: source || "direct",
         }),
-      });
-    } else {
-      // Fallback: log to console when Google Script URL is not configured
-      console.log("New lead submission:", {
-        timestamp: new Date().toISOString(),
-        name,
-        email,
-        phone,
-        source,
       });
     }
 
