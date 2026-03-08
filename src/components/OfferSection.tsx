@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 
 function CountdownTimer() {
@@ -142,6 +143,13 @@ export default function OfferSection() {
             >
               무료 상담 신청하기
             </a>
+            <br />
+            <Link
+              href="/consultation"
+              className="inline-block mt-4 text-sm text-[#9F7AEA] hover:text-white transition-colors"
+            >
+              상담 페이지 바로가기 →
+            </Link>
           </div>
         </ScrollReveal>
       </div>

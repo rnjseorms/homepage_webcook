@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 
 const problems = [
@@ -87,6 +88,12 @@ export default function ProblemSection() {
                 </span>
               </p>
             </div>
+            <Link
+              href="/problem"
+              className="inline-block mt-6 text-sm text-[#9F7AEA] hover:text-white transition-colors"
+            >
+              자세히 보기 →
+            </Link>
           </div>
         </ScrollReveal>
       </div>

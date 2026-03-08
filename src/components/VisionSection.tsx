@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 
 const visionPoints = [
@@ -86,13 +87,20 @@ export default function VisionSection() {
 
         {/* CTA */}
         <ScrollReveal>
-          <div className="text-center mt-16">
+          <div className="text-center mt-16 space-y-4">
             <a
               href="#form"
               className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[#6B46C1] text-white font-semibold text-lg hover:bg-[#553C9A] transition-all"
             >
               웹쿡에 제작 문의하기
             </a>
+            <br />
+            <Link
+              href="/vision"
+              className="inline-block text-sm text-[#9F7AEA] hover:text-white transition-colors"
+            >
+              자세히 보기 →
+            </Link>
           </div>
         </ScrollReveal>
       </div>

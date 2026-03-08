@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 
 const testimonials = [
@@ -147,6 +148,17 @@ export default function SocialProofSection() {
             </ScrollReveal>
           ))}
         </div>
+
+        <ScrollReveal>
+          <div className="text-center mt-10">
+            <Link
+              href="/reviews"
+              className="inline-block text-sm text-[#9F7AEA] hover:text-white transition-colors"
+            >
+              후기 더 보기 →
+            </Link>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

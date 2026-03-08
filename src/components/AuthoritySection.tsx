@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 import CountUp from "./CountUp";
 
@@ -108,6 +109,17 @@ export default function AuthoritySection() {
             </div>
           </ScrollReveal>
         </div>
+
+        <ScrollReveal>
+          <div className="text-center mt-10">
+            <Link
+              href="/about"
+              className="inline-block text-sm text-[#9F7AEA] hover:text-white transition-colors"
+            >
+              웹쿡 소개 자세히 보기 →
+            </Link>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

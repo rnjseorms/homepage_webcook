@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 
 const services = [
@@ -97,6 +98,17 @@ export default function SolutionSection() {
             </ScrollReveal>
           ))}
         </div>
+
+        <ScrollReveal>
+          <div className="text-center mt-10">
+            <Link
+              href="/solution"
+              className="inline-block text-sm text-[#9F7AEA] hover:text-white transition-colors"
+            >
+              서비스 자세히 보기 →
+            </Link>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
