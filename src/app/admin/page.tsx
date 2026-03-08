@@ -22,11 +22,15 @@ interface Stats {
 
 // ── Login Screen ──
 function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [mode, setMode] = useState<"login" | "register">("login");
+  const [inviteCode, setInviteCode] = useState("");
+  const [success, setSuccess] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError("");
@@ -35,14 +39,44 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
       const res = await fetch("/api/admin/auth", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({ username, password }),
       });
 
       if (res.ok) {
         const data = await res.json();
         onLogin(data.token);
       } else {
-        setError("비밀번호가 틀렸습니다.");
+        setError("아이디 또는 비밀번호가 틀렸습니다.");
+      }
+    } catch {
+      setError("서버 오류가 발생했습니다.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    setSuccess("");
+
+    try {
+      const res = await fetch("/api/admin/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password, inviteCode }),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        setSuccess("가입이 완료되었습니다. 로그인해주세요.");
+        setMode("login");
+        setUsername("");
+        setPassword("");
+        setInviteCode("");
+      } else {
+        setError(data.error || "가입에 실패했습니다.");
       }
     } catch {
       setError("서버 오류가 발생했습니다.");
@@ -54,33 +88,62 @@ function LoginScreen({ onLogin }: { onLogin: (token: string) => void }) {
   return (
     <div className="min-h-screen bg-black flex items-center justify-center px-6">
       <form
-        onSubmit={handleSubmit}
+        onSubmit={mode === "login" ? handleLogin : handleRegister}
         className="w-full max-w-sm p-8 rounded-2xl bg-[#111] border border-white/10"
       >
         <h1 className="text-2xl font-bold mb-1 text-center">웹쿡 관리자</h1>
         <p className="text-sm text-[#A0A0B0] text-center mb-8">
-          비밀번호를 입력하세요
+          {mode === "login" ? "로그인" : "회원가입"}
         </p>
+
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="아이디"
+          autoFocus
+          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-[#A0A0B0]/50 focus:border-[#6B46C1] focus:outline-none focus:ring-1 focus:ring-[#6B46C1] transition-all mb-3"
+        />
 
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="비밀번호"
-          autoFocus
-          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-[#A0A0B0]/50 focus:border-[#6B46C1] focus:outline-none focus:ring-1 focus:ring-[#6B46C1] transition-all mb-4"
+          className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-[#A0A0B0]/50 focus:border-[#6B46C1] focus:outline-none focus:ring-1 focus:ring-[#6B46C1] transition-all mb-3"
         />
 
+        {mode === "register" && (
+          <input
+            type="text"
+            value={inviteCode}
+            onChange={(e) => setInviteCode(e.target.value)}
+            placeholder="초대 코드"
+            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-[#A0A0B0]/50 focus:border-[#6B46C1] focus:outline-none focus:ring-1 focus:ring-[#6B46C1] transition-all mb-3"
+          />
+        )}
+
         {error && (
-          <p className="text-red-400 text-sm mb-4 text-center">{error}</p>
+          <p className="text-red-400 text-sm mb-3 text-center">{error}</p>
+        )}
+        {success && (
+          <p className="text-green-400 text-sm mb-3 text-center">{success}</p>
         )}
 
         <button
           type="submit"
-          disabled={loading || !password}
-          className="w-full py-3 rounded-xl bg-[#6B46C1] text-white font-semibold hover:bg-[#553C9A] transition-all disabled:opacity-50"
+          disabled={loading || !username || !password || (mode === "register" && !inviteCode)}
+          className="w-full py-3 rounded-xl bg-[#6B46C1] text-white font-semibold hover:bg-[#553C9A] transition-all disabled:opacity-50 mb-4"
         >
-          {loading ? "확인 중..." : "로그인"}
+          {loading ? "처리 중..." : mode === "login" ? "로그인" : "가입하기"}
+        </button>
+
+        <button
+          type="button"
+          onClick={() => { setMode(mode === "login" ? "register" : "login"); setError(""); setSuccess(""); }}
+          className="w-full text-sm text-[#A0A0B0] hover:text-white transition-colors text-center"
+        >
+          {mode === "login" ? "계정이 없으신가요? 회원가입" : "이미 계정이 있으신가요? 로그인"}
         </button>
       </form>
     </div>

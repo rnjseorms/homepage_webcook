@@ -50,8 +50,9 @@ next-env.d.ts
 # unused components
 /src/components/ScrollFrameAnimation.tsx
 
-# lead data (private)
+# data files (private)
 /data/leads.json
+/data/admins.json
 
 # claude
 .claude/
